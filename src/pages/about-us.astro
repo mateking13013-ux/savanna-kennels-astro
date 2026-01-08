@@ -1,0 +1,504 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TopBar from '../components/TopBar.astro';
+import MainHeader from '../components/MainHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import '../styles/global.css';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn about Montessa Kennel - our story, our passion for puppies, and why we're the right choice for your new furry family member.">
+  <meta name="keywords" content="about us, puppy breeder, Montessa Kennel story, South Africa puppies">
+  <meta property="og:title" content="About Us | Montessa Kennel">
+  <meta property="og:description" content="Meet the family behind Montessa Kennel and learn about our passion for breeding healthy, happy puppies.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐶</text></svg>">
+
+  <!-- Google Tag Manager -->
+  <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-P23MFT6D');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Google Site Verification -->
+  <meta name="google-site-verification" content="fQ6_ce_KXrgcGmY-ON-JgtqgTaYnNHmWQPBhhX7SldE" />
+
+  <title>About Us | Montessa Kennel</title>
+  <style>
+    .about-page {
+      background: #fff;
+    }
+
+    .about-hero {
+      background: linear-gradient(135deg, #f19645 0%, #c46d28 100%);
+      color: white;
+      padding: 5rem 1.5rem;
+      text-align: center;
+    }
+
+    .about-hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin: 0 0 1rem;
+    }
+
+    .about-hero p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .our-story {
+      padding: 5rem 1.5rem;
+      background: #fff;
+    }
+
+    .story-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .story-content h2 {
+      font-size: 2.25rem;
+      color: #f19645;
+      margin: 0 0 1.5rem;
+      font-weight: 700;
+    }
+
+    .story-content p {
+      font-size: 1.05rem;
+      color: #5a5a5a;
+      line-height: 1.8;
+      margin: 0 0 1.25rem;
+    }
+
+    .story-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .story-images img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .story-images img:first-child {
+      grid-column: 1 / -1;
+      height: 280px;
+    }
+
+    .why-choose {
+      padding: 5rem 1.5rem;
+      background: #f8f6f3;
+    }
+
+    .why-choose-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-header h2 {
+      font-size: 2.25rem;
+      color: #f19645;
+      margin: 0 0 1rem;
+      font-weight: 700;
+    }
+
+    .section-header p {
+      font-size: 1.05rem;
+      color: #5a5a5a;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .reason-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .reason-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .reason-number {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #f19645, #e08839);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+    }
+
+    .reason-card h3 {
+      font-size: 1.25rem;
+      color: #2a2a2a;
+      margin: 0 0 0.75rem;
+      font-weight: 700;
+    }
+
+    .reason-card p {
+      font-size: 0.95rem;
+      color: #5a5a5a;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .puppy-gallery {
+      padding: 5rem 1.5rem;
+      background: white;
+    }
+
+    .gallery-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 1;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .cta-section {
+      padding: 5rem 1.5rem;
+      background: linear-gradient(135deg, #f19645 0%, #c46d28 100%);
+      text-align: center;
+      color: white;
+    }
+
+    .cta-section h2 {
+      font-size: 2.25rem;
+      margin: 0 0 1rem;
+      font-weight: 700;
+    }
+
+    .cta-section p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .cta-btn-primary {
+      background: #e08839;
+      color: white;
+    }
+
+    .cta-btn-primary:hover {
+      background: #d63c3c;
+      transform: translateY(-3px);
+    }
+
+    .cta-btn-secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+
+    .cta-btn-secondary:hover {
+      background: white;
+      color: #f19645;
+    }
+
+    @media (max-width: 1024px) {
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .story-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .story-images {
+        order: -1;
+      }
+
+      .reasons-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .about-hero {
+        padding: 4rem 1rem;
+      }
+
+      .about-hero h1 {
+        font-size: 2.25rem;
+      }
+
+      .our-story,
+      .why-choose,
+      .puppy-gallery,
+      .cta-section {
+        padding: 3rem 1rem;
+      }
+
+      .story-content h2,
+      .section-header h2,
+      .cta-section h2 {
+        font-size: 1.75rem;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+
+      .story-images img:first-child {
+        height: 220px;
+      }
+
+      .story-images img {
+        height: 150px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .cta-buttons {
+        flex-direction: column;
+      }
+
+      .cta-btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <TopBar />
+  <MainHeader />
+
+  <main class="about-page">
+    <section class="about-hero">
+      <h1>About Us</h1>
+      <p>Welcome to Montessa Kennel! Learn about our journey and passion for raising healthy, happy puppies.</p>
+    </section>
+
+    <section class="our-story">
+      <div class="story-container">
+        <div class="story-content">
+          <h2>Our Story</h2>
+          <p>Welcome to Montessa Kennel! We are a loving household dedicated to breeding and raising beautiful, healthy puppies from multiple breeds. Our journey began with a deep love for dogs and a passion for connecting families with their perfect furry companions.</p>
+          <p>Our first puppy was more than just a pet; he became a confidant and a source of strength during challenging times, helping us build confidence and find joy in everyday life.</p>
+          <p>Since then, our love for puppies has only deepened. Each one of our puppies is bred with the same love and care that inspired us from the beginning. We believe that puppies have a unique ability to touch lives and bring immeasurable joy to families. Our mission is to share this joy with others by providing healthy, happy, and well-socialized puppies.</p>
+          <p>We prefer to arrange puppy pickups because it allows us the wonderful opportunity to meet the new families who will be welcoming one of our puppies into their home. It's a special moment that we cherish, knowing our puppies are going to loving families where they will create lasting memories.</p>
+          <p>Thank you for considering adding one of our puppies to your family. We are excited to help you find your new furry friend and to continue the legacy of love that started our breeding journey.</p>
+        </div>
+        <div class="story-images">
+          <img src="https://savannakennels.co.za/wp-content/uploads/2025/08/TANK.jpg" alt="Beautiful puppy from Montessa Kennel">
+          <img src="https://savannakennels.co.za/wp-content/uploads/2025/05/VICTOR-2.jpeg" alt="Adorable puppy companion">
+          <img src="https://savannakennels.co.za/wp-content/uploads/2025/05/MISHA-6.jpeg" alt="Sweet puppy ready for a home">
+        </div>
+      </div>
+    </section>
+
+    <section class="why-choose">
+      <div class="why-choose-container">
+        <div class="section-header">
+          <h2>Why Choose Us</h2>
+          <p>Here's what sets us apart and makes us the right choice for your new furry family member.</p>
+        </div>
+
+        <div class="reasons-grid">
+          <div class="reason-card">
+            <div class="reason-number">1</div>
+            <h3>Passion for Puppies</h3>
+            <p>We have a deep-rooted love for dogs that began with our first puppy. This passion drives us to breed with care and dedication, ensuring that each puppy is raised in a loving environment.</p>
+          </div>
+
+          <div class="reason-card">
+            <div class="reason-number">2</div>
+            <h3>Focus on Health and Well-Being</h3>
+            <p>We prioritize the health of our puppies by conducting thorough health screenings and genetic testing on the parents. This helps minimize the risk of hereditary health issues, ensuring that our puppies are healthy and robust.</p>
+          </div>
+
+          <div class="reason-card">
+            <div class="reason-number">3</div>
+            <h3>Socialization and Care</h3>
+            <p>Each puppy is raised in a family setting, allowing them to be well-socialized with children and other pets. This environment helps them develop into well-adjusted and friendly companions.</p>
+          </div>
+
+          <div class="reason-card">
+            <div class="reason-number">4</div>
+            <h3>Transparency and Communication</h3>
+            <p>We believe in open communication with prospective owners. We provide all necessary information about the puppy's health, lineage, and care requirements. We're here to answer any questions and support you throughout the process.</p>
+          </div>
+
+          <div class="reason-card">
+            <div class="reason-number">5</div>
+            <h3>Commitment to Lifelong Support</h3>
+            <p>Our commitment doesn't end when you take your puppy home. We offer ongoing support and guidance, helping you navigate any questions or challenges that arise as your puppy grows.</p>
+          </div>
+
+          <div class="reason-card">
+            <div class="reason-number">6</div>
+            <h3>Personalized Experience</h3>
+            <p>We prefer arranging puppy pickups, which allows us to meet new families personally. This connection ensures that you feel comfortable and confident in your choice, and it gives us peace of mind knowing our puppies are going to loving homes.</p>
+          </div>
+
+          <div class="reason-card">
+            <div class="reason-number">7</div>
+            <h3>Ethical Breeding Practices</h3>
+            <p>We adhere to ethical breeding practices, focusing on the welfare of the dogs. We ensure that each breeding is done responsibly and with the goal of producing healthy, well-tempered puppies.</p>
+          </div>
+
+          <div class="reason-card">
+            <div class="reason-number">8</div>
+            <h3>Legacy of Love</h3>
+            <p>By choosing Montessa Kennel, you're not just getting a puppy; you're becoming part of a legacy of love and companionship. We aim to pass on that joy to you and your family.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="puppy-gallery">
+      <div class="gallery-container">
+        <div class="section-header">
+          <h2>Our Adorable Puppies</h2>
+          <p>Take a look at some of our beautiful puppies looking for their forever homes.</p>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="https://savannakennels.co.za/wp-content/uploads/2025/08/TANK.jpg" alt="Beautiful puppy">
+          </div>
+          <div class="gallery-item">
+            <img src="https://savannakennels.co.za/wp-content/uploads/2025/05/VICTOR-2.jpeg" alt="Adorable puppy">
+          </div>
+          <div class="gallery-item">
+            <img src="https://savannakennels.co.za/wp-content/uploads/2025/05/MISHA-6.jpeg" alt="Sweet puppy">
+          </div>
+          <div class="gallery-item">
+            <img src="https://savannakennels.co.za/wp-content/uploads/2025/05/LOTTIE-11.jpeg" alt="Cute puppy">
+          </div>
+          <div class="gallery-item">
+            <img src="https://savannakennels.co.za/wp-content/uploads/2025/01/MOM-AND-DAD00.jpg" alt="Lovely puppy">
+          </div>
+          <div class="gallery-item">
+            <img src="https://savannakennels.co.za/wp-content/uploads/2025/05/VICTOR-2.jpeg" alt="Happy puppy">
+          </div>
+          <div class="gallery-item">
+            <img src="https://savannakennels.co.za/wp-content/uploads/2025/05/MISHA-6.jpeg" alt="Playful puppy">
+          </div>
+          <div class="gallery-item">
+            <img src="https://savannakennels.co.za/wp-content/uploads/2025/05/LOTTIE-11.jpeg" alt="Friendly puppy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <h2>Ready to Find Your Perfect Puppy?</h2>
+      <p>Get in touch with us today and take the first step toward welcoming a new furry family member into your home.</p>
+      <div class="cta-buttons">
+        <a href="/contact" class="cta-btn cta-btn-primary">Contact Us Today</a>
+        <a href="/health-guarantee" class="cta-btn cta-btn-secondary">Health Guarantee</a>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+
+  <!-- Google Analytics (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MGXK2HP063"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MGXK2HP063');
+  </script>
+
+  <!-- Google Ads Conversion Tracking -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11011636949"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-11011636949');
+  </script>
+
+  <!-- Event snippet for Contact conversion page -->
+  <script is:inline>
+    gtag('event', 'conversion', {
+        'send_to': 'AW-11011636949/ke9NCPrZh9obENX94IIp',
+        'value': 1.0,
+        'currency': 'ZAR'
+    });
+  </script>
+</body>
+</html>

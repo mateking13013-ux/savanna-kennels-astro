@@ -1,0 +1,57 @@
+---
+// StepCard component
+interface Props {
+  number: string;
+  title: string;
+}
+
+const { number, title } = Astro.props;
+---
+
+<div class="step-card">
+  <span class="number">{number}</span>
+  <h4 class="title">{title}</h4>
+  <div class="content">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .step-card {
+    display: block;
+    background: white;
+    border-radius: 6px;
+    padding: 1.25rem;
+    border: 1px solid #e8e0d5;
+    position: relative;
+  }
+
+  .number {
+    position: absolute;
+    top: -12px;
+    left: 1rem;
+    width: 28px;
+    height: 28px;
+    background: #e08839;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #3a3a3a;
+    margin: 0.5rem 0 0.5rem;
+  }
+
+  .content {
+    color: #5a5a5a;
+    line-height: 1.7;
+    font-size: 0.9rem;
+  }
+</style>

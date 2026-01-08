@@ -1,0 +1,283 @@
+---
+// HolidayJoySection component
+---
+
+<section class="holiday-section">
+  <div class="section-container">
+    <div class="content-wrapper">
+      <div class="holiday-content">
+        <span class="section-badge">Holiday Special</span>
+        <h2 class="section-title">
+          Bring Home <span>Holiday Joy</span> This Season
+        </h2>
+        <p class="section-description">
+          There's nothing quite like the magic of a new puppy during the holidays. Our adorable puppies are ready to become the heart of your family celebrations.
+        </p>
+
+        <div class="holiday-features">
+          <div class="feature-item">
+            <span class="feature-icon">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            </span>
+            <span class="feature-text">Christmas-ready puppies</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            </span>
+            <span class="feature-text">Complete puppy starter kit included</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            </span>
+            <span class="feature-text">Holiday delivery available</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            </span>
+            <span class="feature-text">Perfect family gift</span>
+          </div>
+        </div>
+
+        <a href="/contact" class="btn-holiday">
+          Contact Us Today
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </a>
+      </div>
+
+      <div class="holiday-images">
+        <div class="image-card image-main">
+          <img src="https://savannakennels.co.za/wp-content/uploads/2025/05/LOTTIE-11.jpeg" alt="Beautiful puppy ready for a loving home" loading="lazy">
+        </div>
+        <div class="image-card image-small-top">
+          <img src="https://savannakennels.co.za/wp-content/uploads/2025/05/MISHA-6.jpeg" alt="Adorable puppy companion" loading="lazy">
+        </div>
+        <div class="image-card image-small-bottom">
+          <img src="https://savannakennels.co.za/wp-content/uploads/2025/05/VICTOR-2.jpeg" alt="Sweet puppy looking for a family" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="decorative-stars">
+    <span class="star star-1">&#10022;</span>
+    <span class="star star-2">&#10022;</span>
+    <span class="star star-3">&#10022;</span>
+  </div>
+</section>
+
+<style>
+  .holiday-section {
+    display: block;
+    font-family: var(--font-family, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif);
+    background: linear-gradient(135deg, #f19645 0%, #c46d28 100%);
+    padding: 4rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .holiday-content {
+    color: white;
+  }
+
+  .section-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    backdrop-filter: blur(10px);
+  }
+
+  .section-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin: 0 0 1rem;
+    line-height: 1.2;
+  }
+
+  .section-title span {
+    color: #FFD700;
+  }
+
+  .section-description {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    opacity: 0.9;
+    margin: 0 0 1.5rem;
+  }
+
+  .holiday-features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    margin-bottom: 2rem;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .feature-icon {
+    width: 24px;
+    height: 24px;
+    background: #FFD700;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .feature-icon svg {
+    width: 14px;
+    height: 14px;
+    fill: #f19645;
+  }
+
+  .feature-text {
+    font-size: 1rem;
+    opacity: 0.95;
+  }
+
+  .btn-holiday {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #e08839;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(178, 34, 34, 0.4);
+  }
+
+  .btn-holiday:hover {
+    background: #d63c3c;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(178, 34, 34, 0.5);
+  }
+
+  .btn-holiday svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+  }
+
+  .holiday-images {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+    height: 400px;
+  }
+
+  .image-card {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .image-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .image-main {
+    grid-row: 1 / -1;
+  }
+
+  .decorative-stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+  }
+
+  .star {
+    position: absolute;
+    color: rgba(255, 215, 0, 0.3);
+    font-size: 2rem;
+  }
+
+  .star-1 {
+    top: 10%;
+    left: 5%;
+    font-size: 1.5rem;
+  }
+
+  .star-2 {
+    top: 20%;
+    right: 10%;
+    font-size: 2.5rem;
+  }
+
+  .star-3 {
+    bottom: 15%;
+    left: 15%;
+    font-size: 1.75rem;
+  }
+
+  @media (max-width: 900px) {
+    .content-wrapper {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .holiday-images {
+      order: -1;
+      height: 300px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .holiday-section {
+      padding: 3rem 1rem;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+    }
+
+    .holiday-images {
+      grid-template-columns: 1fr 1fr;
+      height: 250px;
+    }
+
+    .image-main {
+      grid-row: auto;
+      grid-column: 1 / -1;
+    }
+
+    .decorative-stars {
+      display: none;
+    }
+  }
+</style>

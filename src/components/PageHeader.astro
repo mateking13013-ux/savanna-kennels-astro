@@ -1,0 +1,130 @@
+---
+// PageHeader component
+interface BreadcrumbItem {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  breadcrumbs?: BreadcrumbItem[];
+}
+
+const {
+  title = 'Available Puppies',
+  subtitle = 'Find your perfect furry companion from our adorable our puppies',
+  breadcrumbs
+} = Astro.props;
+
+// Default breadcrumbs if not provided
+const breadcrumbItems: BreadcrumbItem[] = breadcrumbs || [
+  { label: 'Home', href: '/' },
+  { label: title }
+];
+---
+
+<div class="page-header">
+  <div class="page-header-content">
+    <nav class="breadcrumb">
+      {breadcrumbItems.map((item, index) => (
+        <>
+          {index > 0 && <span>/</span>}
+          {item.href ? (
+            <a href={item.href}>{item.label}</a>
+          ) : (
+            <span class="current">{item.label}</span>
+          )}
+        </>
+      ))}
+    </nav>
+    <h1 class="page-title">{title}</h1>
+    <p class="page-subtitle">{subtitle}</p>
+  </div>
+</div>
+
+<style>
+  .page-header {
+    display: block;
+    font-family: var(--font-family, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif);
+    background: linear-gradient(135deg, #f19645 0%, #d97b30 100%);
+    padding: 3rem 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .page-header-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .breadcrumb .current {
+    color: white;
+    font-weight: 500;
+  }
+
+  .page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    margin: 0 0 0.75rem;
+  }
+
+  .page-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .page-header {
+      padding: 2rem 1rem;
+    }
+
+    .page-title {
+      font-size: 1.75rem;
+    }
+
+    .page-subtitle {
+      font-size: 1rem;
+    }
+  }
+</style>

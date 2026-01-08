@@ -1,0 +1,504 @@
+---
+// HeroSection component - Image carousel and hero content
+const slides = [
+  { image: 'https://savannakennels.co.za/wp-content/uploads/2025/08/TANK.jpg', alt: 'Beautiful Labrador puppy' },
+  { image: 'https://savannakennels.co.za/wp-content/uploads/2025/01/MOM-AND-DAD00.jpg', alt: 'Golden Retriever family' },
+  { image: 'https://savannakennels.co.za/wp-content/uploads/2025/01/PARENTS-6.jpg', alt: 'German Shepherd puppies' },
+  { image: 'https://savannakennels.co.za/wp-content/uploads/2025/05/SKAI.jpg', alt: 'Adorable puppy ready for home' }
+];
+---
+
+<section class="hero" id="home">
+  <div class="hero-container">
+    <div class="slider-wrapper">
+      <div class="slider">
+        <div class="slider-track">
+          {slides.map((slide) => (
+            <div class="slide">
+              <img src={slide.image} alt={slide.alt} loading="eager">
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <a href="/contact" class="slider-overlay-btn">
+        Contact Us
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+        </svg>
+      </a>
+
+      <button class="slider-arrow slider-prev" aria-label="Previous slide">&#10094;</button>
+      <button class="slider-arrow slider-next" aria-label="Next slide">&#10095;</button>
+
+      <div class="slider-controls">
+        {slides.map((_, i) => (
+          <button class={`slider-dot ${i === 0 ? 'active' : ''}`} data-index={i} aria-label={`Go to slide ${i + 1}`}></button>
+        ))}
+      </div>
+    </div>
+
+    <div class="hero-content">
+      <h1 class="hero-title">
+        Find Your <span>Lifelong</span><br>
+        Furry Companion
+      </h1>
+
+      <p class="hero-description">
+        We connect wonderful families with happy, healthy puppies from
+        our carefully selected breeding program. Your perfect furry companion
+        is waiting for you at Montessa Kennel.
+      </p>
+
+      <div class="hero-features">
+        <div class="feature-item">
+          <span class="feature-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5-1.5.67-1.5 1.5.67 1.5 1.5 1.5zm11 0c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5-1.5.67-1.5 1.5.67 1.5 1.5 1.5zm-8.5-4c.83 0 1.5-.67 1.5-1.5S9.83 10.5 9 10.5s-1.5.67-1.5 1.5.67 1.5 1.5 1.5zm6 0c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5-1.5.67-1.5 1.5.67 1.5 1.5 1.5zm-3-3c.83 0 1.5-.67 1.5-1.5S12.83 8 12 8s-1.5.67-1.5 1.5.67 1.5 1.5 1.5z"/>
+            </svg>
+          </span>
+          Family Dogs
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5-1.5.67-1.5 1.5.67 1.5 1.5 1.5zm11 0c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5-1.5.67-1.5 1.5.67 1.5 1.5 1.5zm-8.5-4c.83 0 1.5-.67 1.5-1.5S9.83 10.5 9 10.5s-1.5.67-1.5 1.5.67 1.5 1.5 1.5zm6 0c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5-1.5.67-1.5 1.5.67 1.5 1.5 1.5zm-3-3c.83 0 1.5-.67 1.5-1.5S12.83 8 12 8s-1.5.67-1.5 1.5.67 1.5 1.5 1.5z"/>
+            </svg>
+          </span>
+          Multiple Breeds
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5-1.5.67-1.5 1.5.67 1.5 1.5 1.5zm11 0c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5-1.5.67-1.5 1.5.67 1.5 1.5 1.5zm-8.5-4c.83 0 1.5-.67 1.5-1.5S9.83 10.5 9 10.5s-1.5.67-1.5 1.5.67 1.5 1.5 1.5zm6 0c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5-1.5.67-1.5 1.5.67 1.5 1.5 1.5zm-3-3c.83 0 1.5-.67 1.5-1.5S12.83 8 12 8s-1.5.67-1.5 1.5.67 1.5 1.5 1.5z"/>
+            </svg>
+          </span>
+          Health Guaranteed
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5-1.5.67-1.5 1.5.67 1.5 1.5 1.5zm11 0c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5-1.5.67-1.5 1.5.67 1.5 1.5 1.5zm-8.5-4c.83 0 1.5-.67 1.5-1.5S9.83 10.5 9 10.5s-1.5.67-1.5 1.5.67 1.5 1.5 1.5zm6 0c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5-1.5.67-1.5 1.5.67 1.5 1.5 1.5zm-3-3c.83 0 1.5-.67 1.5-1.5S12.83 8 12 8s-1.5.67-1.5 1.5.67 1.5 1.5 1.5z"/>
+            </svg>
+          </span>
+          Emotional Support Puppies
+        </div>
+      </div>
+
+      <div class="hero-cta">
+        <a href="/about-us" class="btn btn-primary">
+          About Us
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+          </svg>
+        </a>
+        <a href="/health-guarantee" class="btn btn-secondary">
+          Health Guarantee
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  let currentSlide = 0;
+  let slideInterval: ReturnType<typeof setInterval> | null = null;
+  const slides = document.querySelectorAll('.slide');
+  const track = document.querySelector('.slider-track') as HTMLElement;
+  const dots = document.querySelectorAll('.slider-dot');
+  const prevBtn = document.querySelector('.slider-prev');
+  const nextBtn = document.querySelector('.slider-next');
+
+  function updateSlider() {
+    if (track) {
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === currentSlide);
+    });
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    updateSlider();
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    updateSlider();
+  }
+
+  function goToSlide(index: number) {
+    currentSlide = index;
+    updateSlider();
+  }
+
+  function startAutoSlide() {
+    slideInterval = setInterval(nextSlide, 5000);
+  }
+
+  function stopAutoSlide() {
+    if (slideInterval) {
+      clearInterval(slideInterval);
+    }
+  }
+
+  prevBtn?.addEventListener('click', () => {
+    stopAutoSlide();
+    prevSlide();
+    startAutoSlide();
+  });
+
+  nextBtn?.addEventListener('click', () => {
+    stopAutoSlide();
+    nextSlide();
+    startAutoSlide();
+  });
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      stopAutoSlide();
+      goToSlide(index);
+      startAutoSlide();
+    });
+  });
+
+  startAutoSlide();
+</script>
+
+<style>
+  .hero {
+    display: block;
+    font-family: var(--font-family, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif);
+    background: #ffffff;
+    padding: 1.5rem 1.5rem 2rem;
+    min-height: auto;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 65% 1fr;
+    gap: 1.25rem;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .slider-wrapper {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 30px rgba(139, 90, 43, 0.15);
+    border: 4px solid #c9a77a;
+    background: #c9a77a;
+    height: 500px;
+    max-height: 500px;
+  }
+
+  .slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 6px;
+  }
+
+  .slider-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.6s ease-in-out;
+  }
+
+  .slide {
+    min-width: 100%;
+    height: 100%;
+  }
+
+  .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .slider-overlay-btn {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    background: rgba(250, 245, 235, 0.95);
+    color: #5a4a3a;
+    padding: 0.875rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .slider-overlay-btn:hover {
+    background: #5a4a3a;
+    color: #fff;
+  }
+
+  .slider-overlay-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+  }
+
+  .slider-controls {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    display: flex;
+    gap: 0.5rem;
+    z-index: 10;
+  }
+
+  .slider-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .slider-dot.active {
+    background: #fff;
+    transform: scale(1.2);
+  }
+
+  .slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: #5a4a3a;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    z-index: 10;
+    opacity: 0;
+  }
+
+  .slider-wrapper:hover .slider-arrow {
+    opacity: 1;
+  }
+
+  .slider-arrow:hover {
+    background: #5a4a3a;
+    color: white;
+  }
+
+  .slider-prev {
+    left: 1rem;
+  }
+
+  .slider-next {
+    right: 1rem;
+  }
+
+  .hero-content {
+    background: #faf5eb;
+    border-radius: 10px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    height: 500px;
+    max-height: 500px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #3a3a3a;
+    margin: 0;
+  }
+
+  .hero-title span {
+    color: var(--color-primary, #e08839);
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #6a6a6a;
+    margin: 0;
+  }
+
+  .hero-features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    margin-top: 0.5rem;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1rem;
+    color: #4a4a4a;
+    font-weight: 500;
+  }
+
+  .feature-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+  }
+
+  .feature-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: #8a7a6a;
+  }
+
+  .hero-cta {
+    margin-top: 1rem;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 1.75rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+  }
+
+  .btn-primary {
+    background: #4a4a4a;
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: #3a3a3a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-primary svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+  }
+
+  .btn-secondary {
+    background: #f19645;
+    color: white;
+  }
+
+  .btn-secondary:hover {
+    background: #e08839;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(241, 150, 69, 0.3);
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 1024px) {
+    .hero-container {
+      grid-template-columns: 60% 1fr;
+      gap: 1rem;
+    }
+
+    .hero-title {
+      font-size: 1.75rem;
+    }
+
+    .hero-content {
+      padding: 1.5rem;
+    }
+
+    .slider-wrapper,
+    .hero-content {
+      height: 450px;
+      max-height: 450px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 1rem 1rem 1.5rem;
+      min-height: auto;
+    }
+
+    .hero-container {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .slider-wrapper {
+      max-width: 100%;
+      min-height: 280px;
+      height: auto;
+    }
+
+    .hero-content {
+      min-height: auto;
+      height: auto;
+    }
+
+    .hero-title {
+      font-size: 1.5rem;
+    }
+
+    .hero-content {
+      padding: 1.5rem;
+    }
+
+    .hero-description {
+      font-size: 0.95rem;
+    }
+
+    .feature-item {
+      font-size: 0.95rem;
+    }
+
+    .slider-arrow {
+      width: 35px;
+      height: 35px;
+      opacity: 1;
+    }
+
+    .slider-overlay-btn {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.875rem;
+      bottom: 1rem;
+      left: 1rem;
+    }
+  }
+</style>

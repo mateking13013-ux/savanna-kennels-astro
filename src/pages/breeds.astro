@@ -1,0 +1,168 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import { getBreeds } from '../lib/woocommerce';
+
+// Fetch all breeds at build time
+const breeds = await getBreeds();
+---
+
+<BaseLayout
+  title="Dog Breeds | Find Your Perfect Puppy Companion"
+  description="Browse our wide selection of dog breeds. From Labrador Retrievers to French Bulldogs, find your perfect puppy companion. Health guaranteed, ethically bred puppies ready for their forever homes."
+  keywords="dog breeds, puppies for sale, labrador puppies, french bulldog puppies, golden retriever puppies, german shepherd puppies"
+  ogTitle="Dog Breeds | Find Your Perfect Puppy"
+  ogDescription="Discover our beautiful selection of dog breeds. Health guaranteed, vet checked puppies ready for adoption."
+>
+  <PageHeader
+    title="Our Dog Breeds"
+    subtitle="Discover our wide selection of ethically bred, health-guaranteed puppies. Find your perfect companion from our carefully raised breeds."
+  />
+
+  <section class="breeds-section">
+    <div class="breeds-header">
+      <h2 class="breeds-title">Choose Your Perfect Breed</h2>
+      <p class="breeds-subtitle">We raise a variety of wonderful breeds, each with their unique personality and charm. Click on any breed to see our available puppies.</p>
+    </div>
+
+    <div class="breeds-grid">
+      {breeds.map((breed) => (
+        <a href={`/breeds/${breed.slug}`} class="breed-card">
+          <div class="breed-image">
+            <img src={breed.image} alt={breed.name} loading="lazy">
+            <div class="breed-count">{breed.count} Available</div>
+          </div>
+          <div class="breed-info">
+            <h3 class="breed-name">{breed.name}</h3>
+            <span class="breed-cta">View Puppies →</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .breeds-section {
+    padding: 3rem 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .breeds-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .breeds-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #2a2a2a;
+    margin: 0 0 0.75rem;
+  }
+
+  .breeds-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .breeds-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .breed-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid #eee;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .breed-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  }
+
+  .breed-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+  }
+
+  .breed-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .breed-card:hover .breed-image img {
+    transform: scale(1.05);
+  }
+
+  .breed-count {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: #f19645;
+    color: white;
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  .breed-info {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .breed-name {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #2a2a2a;
+    margin: 0;
+  }
+
+  .breed-cta {
+    font-size: 0.9rem;
+    color: #e08839;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  .breed-card:hover .breed-cta {
+    color: #f19645;
+  }
+
+  @media (max-width: 768px) {
+    .breeds-section {
+      padding: 2rem 1rem;
+    }
+
+    .breeds-title {
+      font-size: 1.75rem;
+    }
+
+    .breeds-grid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .breeds-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

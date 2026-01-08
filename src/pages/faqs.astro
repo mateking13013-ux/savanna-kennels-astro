@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import FaqItem from '../components/FaqItem.astro';
+---
+
+<BaseLayout
+  title="FAQs | Montessa Kennel"
+  description="Frequently asked questions about our puppies and our breeding practices at Montessa Kennel."
+  keywords="puppy faq, puppy questions, breeder FAQ"
+>
+  <PageHeader
+    title="Frequently Asked Questions"
+    subtitle="Find answers to common questions about our puppies and process"
+  />
+
+  <section class="faq-content">
+    <div class="content-container">
+      <h2>General Questions</h2>
+
+      <FaqItem question="Is a puppy a good breed?">
+        <p>puppys are affectionate and playful dogs that make wonderful companions. They are loyal, intelligent, and full of personality. With proper training and socialization, they make excellent family pets.</p>
+      </FaqItem>
+
+      <FaqItem question="Is a puppy Puppy good for beginners?">
+        <p>Yes! puppys are great dogs for first-time dog owners. They are affectionate, relatively easy to care for, and eager to please. Their smaller size makes them manageable, and they adapt well to various living situations.</p>
+      </FaqItem>
+
+      <FaqItem question="Do puppys make good family pets?">
+        <p>Absolutely! Not only are puppys amazing companions, but they are also great family pets. They tend to get along well with other pets and are generally good with children, especially when properly socialized from a young age.</p>
+      </FaqItem>
+
+      <FaqItem question="Do our puppies smell bad?">
+        <p>With proper grooming and care, your puppy will not have a foul smell. Regular bathing, ear cleaning, and dental care are important. Consider taking your dog to a professional groomer periodically and always use quality dog shampoos.</p>
+      </FaqItem>
+
+      <FaqItem question="What not to do with puppys?">
+        <p>puppys should not be made to jump from heights or use stairs frequently. Due to their long spine and short legs, they can easily damage their backs. Always support their back when picking them up and provide ramps for furniture.</p>
+      </FaqItem>
+
+      <h2>About Our Puppies</h2>
+
+      <FaqItem question="What is included when I purchase a puppy?">
+        <p>Each puppy comes with: current vaccinations, deworming records, a veterinary health certificate, a lifetime health guarantee, a puppy starter kit, and ongoing support from our team.</p>
+      </FaqItem>
+
+      <FaqItem question="How do I reserve a puppy?">
+        <p>Contact us through our website or by phone to express your interest. We'll discuss available puppies, answer your questions, and guide you through the reservation process, which typically includes a deposit.</p>
+      </FaqItem>
+
+      <FaqItem question="Do you offer delivery?">
+        <p>Yes! We offer both pickup and delivery options. We prefer in-person pickup so we can meet you and ensure a smooth transition, but we understand this isn't always possible. Delivery arrangements can be made within South Africa.</p>
+      </FaqItem>
+
+      <FaqItem question="Are your puppies potty trained?">
+        <p>We begin potty training and crate training with our puppies before they go to their new homes. While they won't be fully trained, they'll have a good foundation for you to continue their training.</p>
+      </FaqItem>
+
+      <FaqItem question="What colors/patterns do you have?">
+        <p>We breed a variety of beautiful colors and patterns including chocolate, cream, black and tan, dapple, and more. Check our Available Puppies page to see current options, or contact us about upcoming litters.</p>
+      </FaqItem>
+
+      <div class="cta-box">
+        <h3>Have More Questions?</h3>
+        <p>We're here to help! Reach out to us with any additional questions.</p>
+        <a href="/contact" class="btn">Contact Us</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .faq-content {
+    padding: 4rem 1.5rem;
+    background: #f8f6f3;
+  }
+
+  .content-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #2a2a2a;
+    margin: 2rem 0 1.5rem;
+  }
+
+  h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .cta-box {
+    background: linear-gradient(135deg, #f19645, #e08839);
+    color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .cta-box h3 {
+    color: white;
+    font-size: 1.5rem;
+    margin: 0 0 0.5rem;
+  }
+
+  .cta-box p {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 0 1.5rem;
+  }
+
+  .btn {
+    display: inline-block;
+    background: #e08839;
+    color: white;
+    padding: 0.875rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn:hover {
+    background: #d63c3c;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    .faq-content {
+      padding: 3rem 1rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+</style>

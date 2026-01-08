@@ -1,0 +1,188 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import InfoBox from '../components/InfoBox.astro';
+---
+
+<BaseLayout
+  title="Pickup & Delivery | Montessa Kennel"
+  description="Learn about our pickup and delivery options for our puppies."
+  keywords="puppy delivery, puppy pickup, dog shipping"
+>
+  <PageHeader
+    title="Pickup & Delivery"
+    subtitle="Getting your new puppy home safely"
+  />
+
+  <section class="info-content">
+    <div class="content-container">
+      <h2>Bringing Your Puppy Home</h2>
+      <p>We offer flexible options to ensure your new puppy arrives safely and comfortably at their forever home.</p>
+
+      <InfoBox type="success" title="Holiday Delivery Update">
+        <p>During the holiday season, we offer fast and reliable delivery within 24 hours. We're fully open and ready to help your new furry family member arrive safely and on time for the holidays!</p>
+      </InfoBox>
+
+      <h3>In-Person Pickup (Preferred)</h3>
+      <p>We love meeting the families who will be caring for our puppies! In-person pickup offers several benefits:</p>
+      <ul>
+        <li>Meet us and see where your puppy was raised</li>
+        <li>Receive hands-on guidance for your puppy's care</li>
+        <li>Ask any last-minute questions in person</li>
+        <li>Begin bonding with your puppy immediately</li>
+        <li>No additional shipping fees</li>
+      </ul>
+
+      <InfoBox type="info" title="Location">
+        <p>We operate as a family-based home breeder. Once you contact us and reserve your puppy, we'll share our exact location and arrange a convenient pickup time.</p>
+      </InfoBox>
+
+      <h3>Delivery Options</h3>
+      <p>For families who cannot pick up in person, we offer delivery throughout South Africa.</p>
+
+      <h4>Ground Transport</h4>
+      <ul>
+        <li>Professional pet transport services</li>
+        <li>Climate-controlled vehicles</li>
+        <li>Door-to-door delivery available</li>
+        <li>Pricing varies by distance</li>
+      </ul>
+
+      <h4>Air Transport</h4>
+      <ul>
+        <li>For longer distances</li>
+        <li>Pet-safe airline carriers</li>
+        <li>Direct flights when possible</li>
+        <li>Health certificate included</li>
+      </ul>
+
+      <h3>What's Included</h3>
+      <p>No matter how your puppy arrives, they'll come with:</p>
+      <ul>
+        <li>Puppy starter kit with food, treats, and toys</li>
+        <li>Vaccination and health records</li>
+        <li>Blanket with familiar scents</li>
+        <li>Care instructions and tips</li>
+        <li>Our contact information for ongoing support</li>
+      </ul>
+
+      <h3>Delivery Fees</h3>
+      <p>Delivery fees depend on your location and chosen method. Contact us for a quote based on your specific situation.</p>
+
+      <InfoBox type="tip" title="Travel Tips">
+        <p>If you're driving to pick up your puppy, bring:</p>
+        <ul>
+          <li>A secure carrier or crate</li>
+          <li>Puppy pads for accidents</li>
+          <li>Water and a small bowl</li>
+          <li>Paper towels and bags</li>
+        </ul>
+      </InfoBox>
+
+      <div class="cta-box">
+        <h3>Ready to Arrange Pickup or Delivery?</h3>
+        <p>Contact us to discuss the best option for getting your puppy home.</p>
+        <a href="/contact" class="btn">Contact Us</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .info-content {
+    padding: 4rem 1.5rem;
+    background: #fff;
+  }
+
+  .content-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2a2a2a;
+    margin: 0 0 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #f19645;
+    margin: 2rem 0 1rem;
+  }
+
+  h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2a2a2a;
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #5a5a5a;
+    line-height: 1.8;
+    margin: 0 0 1rem;
+  }
+
+  ul {
+    margin: 0 0 1.5rem 1.5rem;
+    color: #5a5a5a;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+  }
+
+  .cta-box {
+    background: linear-gradient(135deg, #f19645, #e08839);
+    color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .cta-box h3 {
+    color: white;
+    margin: 0 0 0.5rem;
+  }
+
+  .cta-box p {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 0 1.5rem;
+  }
+
+  .btn {
+    display: inline-block;
+    background: #e08839;
+    color: white;
+    padding: 0.875rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn:hover {
+    background: #d63c3c;
+  }
+
+  @media (max-width: 768px) {
+    .info-content {
+      padding: 3rem 1rem;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+    }
+  }
+</style>

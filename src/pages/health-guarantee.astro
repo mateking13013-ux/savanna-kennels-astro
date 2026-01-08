@@ -1,0 +1,163 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import InfoBox from '../components/InfoBox.astro';
+---
+
+<BaseLayout
+  title="Health Guarantee | Montessa Kennel"
+  description="Learn about our comprehensive health guarantee for all our puppies from Montessa Kennel."
+  keywords="health guarantee, puppy warranty, puppy health"
+>
+  <PageHeader
+    title="Health Guarantee"
+    subtitle="Our commitment to your puppy's health and well-being"
+  />
+
+  <section class="info-content">
+    <div class="content-container">
+      <h2>Our Lifetime Health Guarantee</h2>
+      <p>At Montessa Kennel, we stand behind the health of every puppy we raise. Our comprehensive health guarantee gives you peace of mind when welcoming your new family member.</p>
+
+      <InfoBox type="success" title="What's Included">
+        <ul>
+          <li>Lifetime genetic health guarantee</li>
+          <li>First set of vaccinations completed</li>
+          <li>Veterinary health certificate</li>
+          <li>Deworming treatments up to date</li>
+          <li>Microchipping available upon request</li>
+        </ul>
+      </InfoBox>
+
+      <h3>Health Screening</h3>
+      <p>All parent dogs undergo comprehensive health screening before breeding. We test for common genetic conditions that can affect puppys, including:</p>
+      <ul>
+        <li>Intervertebral Disc Disease (IVDD) risk assessment</li>
+        <li>Progressive Retinal Atrophy (PRA)</li>
+        <li>Hip and joint evaluation</li>
+        <li>Heart health screening</li>
+      </ul>
+
+      <h3>Vaccination Schedule</h3>
+      <p>Each puppy receives age-appropriate vaccinations before going to their new home:</p>
+      <ul>
+        <li>6-8 weeks: First DHPP vaccination</li>
+        <li>10-12 weeks: Second DHPP vaccination</li>
+        <li>Regular deworming from 2 weeks of age</li>
+      </ul>
+
+      <InfoBox type="info" title="Important Note">
+        <p>Your puppy will need to continue their vaccination schedule with your local veterinarian. We provide complete records of all treatments administered.</p>
+      </InfoBox>
+
+      <h3>Our Commitment</h3>
+      <p>If any genetic health issue is discovered within the guarantee period, we work with you to find the best solution. This may include:</p>
+      <ul>
+        <li>Replacement puppy of equal value</li>
+        <li>Partial or full refund</li>
+        <li>Assistance with veterinary costs</li>
+      </ul>
+
+      <p>We believe in transparency and will always be available to answer your questions about your puppy's health history and care needs.</p>
+
+      <div class="cta-box">
+        <h3>Questions About Our Health Guarantee?</h3>
+        <p>We're happy to provide more details about our health guarantee policies.</p>
+        <a href="/contact" class="btn">Contact Us</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .info-content {
+    padding: 4rem 1.5rem;
+    background: #fff;
+  }
+
+  .content-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2a2a2a;
+    margin: 0 0 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #f19645;
+    margin: 2rem 0 1rem;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #5a5a5a;
+    line-height: 1.8;
+    margin: 0 0 1rem;
+  }
+
+  ul {
+    margin: 0 0 1.5rem 1.5rem;
+    color: #5a5a5a;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+  }
+
+  .cta-box {
+    background: linear-gradient(135deg, #f19645, #e08839);
+    color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .cta-box h3 {
+    color: white;
+    margin: 0 0 0.5rem;
+  }
+
+  .cta-box p {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 0 1.5rem;
+  }
+
+  .btn {
+    display: inline-block;
+    background: #e08839;
+    color: white;
+    padding: 0.875rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn:hover {
+    background: #d63c3c;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    .info-content {
+      padding: 3rem 1rem;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+    }
+  }
+</style>

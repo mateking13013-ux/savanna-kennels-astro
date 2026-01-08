@@ -1,0 +1,246 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+---
+
+<BaseLayout
+  title="Thank You | Montessa Kennel"
+  description="Thank you for your interest in Montessa Kennel. We appreciate you reaching out to us."
+  keywords="thank you, montessa kennel, puppy inquiry"
+>
+  <PageHeader
+    title="Thank You!"
+    subtitle="We appreciate your interest in Montessa Kennel"
+  />
+
+  <section class="thank-you-section">
+    <div class="thank-you-container">
+      <div class="thank-you-card">
+        <div class="icon-wrapper">
+          <svg viewBox="0 0 24 24" class="check-icon">
+            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+          </svg>
+        </div>
+
+        <h2>Your Message Has Been Received!</h2>
+
+        <p>Thank you for reaching out to us at Montessa Kennel. We truly appreciate your interest in our puppies and our family.</p>
+
+        <p>Our team will review your inquiry and get back to you as soon as possible, usually within 24-48 hours.</p>
+
+        <div class="features-list">
+          <div class="feature">
+            <span class="check">✓</span>
+            Your inquiry has been received
+          </div>
+          <div class="feature">
+            <span class="check">✓</span>
+            Our team will review your message
+          </div>
+          <div class="feature">
+            <span class="check">✓</span>
+            We'll respond within 24-48 hours
+          </div>
+          <div class="feature">
+            <span class="check">✓</span>
+            Check your email for our response
+          </div>
+        </div>
+
+        <p class="note">In the meantime, feel free to explore more about us or reach out via WhatsApp for faster response.</p>
+
+        <div class="action-buttons">
+          <a href="/" class="btn-primary">Back to Home</a>
+          <a href="/contact" class="btn-secondary">Contact Us Again</a>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <h3>What Happens Next?</h3>
+        <p>We carefully review each inquiry to ensure we can provide you with the best possible service. Our team will reach out to discuss your needs and answer any questions you may have about our puppies.</p>
+        <p>We look forward to helping you find your perfect furry companion!</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .thank-you-section {
+    padding: 4rem 1.5rem;
+    background: #faf5eb;
+  }
+
+  .thank-you-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .thank-you-card {
+    background: white;
+    border-radius: 16px;
+    padding: 3rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .icon-wrapper {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #f19645, #e08839);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+  }
+
+  .check-icon {
+    width: 40px;
+    height: 40px;
+    fill: white;
+  }
+
+  .thank-you-card h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2a2a2a;
+    margin: 0 0 1.5rem;
+  }
+
+  .thank-you-card p {
+    font-size: 1.05rem;
+    color: #5a5a5a;
+    line-height: 1.7;
+    margin: 0 0 1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .features-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 2rem 0;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .feature {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    color: #333;
+    text-align: left;
+  }
+
+  .check {
+    color: #f19645;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
+  .note {
+    background: #fff8f0;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #f19645;
+    margin: 2rem auto;
+    max-width: 500px;
+    text-align: left;
+  }
+
+  .action-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  .btn-primary {
+    background: #f19645;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background: #e08839;
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: #f19645;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid #f19645;
+    transition: all 0.3s ease;
+  }
+
+  .btn-secondary:hover {
+    background: #f19645;
+    color: white;
+  }
+
+  .info-card {
+    background: linear-gradient(135deg, #f19645, #e08839);
+    color: white;
+    border-radius: 16px;
+    padding: 2.5rem;
+    text-align: center;
+  }
+
+  .info-card h3 {
+    font-size: 1.5rem;
+    margin: 0 0 1rem;
+  }
+
+  .info-card p {
+    font-size: 1rem;
+    opacity: 0.95;
+    margin: 0 0 1rem;
+    line-height: 1.7;
+  }
+
+  .info-card p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) {
+    .thank-you-section {
+      padding: 3rem 1rem;
+    }
+
+    .thank-you-card {
+      padding: 2rem;
+    }
+
+    .thank-you-card h2 {
+      font-size: 1.5rem;
+    }
+
+    .features-list {
+      grid-template-columns: 1fr;
+    }
+
+    .action-buttons {
+      flex-direction: column;
+    }
+
+    .info-card {
+      padding: 2rem;
+    }
+  }
+</style>

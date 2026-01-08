@@ -1,0 +1,98 @@
+---
+import '../styles/global.css';
+import TopBar from '../components/TopBar.astro';
+import MainHeader from '../components/MainHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import WhatsAppChat from '../components/WhatsAppChat.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  keywords?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogType?: string;
+  ogUrl?: string;
+}
+
+const {
+  title,
+  description = "Montessa Kennel - Find your perfect puppy companion. Ethically bred, health guaranteed puppies ready to bring joy to your home. Multiple breeds available.",
+  keywords = "puppies for sale, dog breeder, healthy puppies, puppy adoption, family puppies",
+  ogTitle,
+  ogDescription,
+  ogType = "website",
+  ogUrl
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content={description}>
+  <meta name="keywords" content={keywords}>
+  <meta name="author" content="Montessa Kennel">
+
+  <!-- Google Tag Manager -->
+  <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-P23MFT6D');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Google Site Verification -->
+  <meta name="google-site-verification" content="fQ6_ce_KXrgcGmY-ON-JgtqgTaYnNHmWQPBhhX7SldE" />
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content={ogTitle || title}>
+  <meta property="og:description" content={ogDescription || description}>
+  <meta property="og:type" content={ogType}>
+  {ogUrl && <meta property="og:url" content={ogUrl}>}
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐶</text></svg>">
+
+  <title>{title}</title>
+</head>
+<body>
+  <TopBar />
+  <MainHeader />
+
+  <main>
+    <slot />
+  </main>
+
+  <SiteFooter />
+  <WhatsAppChat />
+
+  <!-- Google Analytics (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MGXK2HP063"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MGXK2HP063');
+  </script>
+
+  <!-- Google Ads Conversion Tracking -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11011636949"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-11011636949');
+  </script>
+
+  <!-- Event snippet for Contact conversion page -->
+  <script is:inline>
+    gtag('event', 'conversion', {
+        'send_to': 'AW-11011636949/ke9NCPrZh9obENX94IIp',
+        'value': 1.0,
+        'currency': 'ZAR'
+    });
+  </script>
+</body>
+</html>

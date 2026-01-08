@@ -1,0 +1,211 @@
+---
+// TestimonialsSection component
+import { testimonials } from '../data/testimonials';
+---
+
+<section class="testimonials-section" id="testimonials">
+  <div class="testimonials-container">
+    <div class="section-header">
+      <span class="section-badge">Happy Families</span>
+      <h2 class="section-title">What Our Families Say</h2>
+      <p class="section-subtitle">Real stories from families who found their perfect companion with us.</p>
+    </div>
+
+    <div class="testimonials-grid">
+      {testimonials.map((testimonial) => (
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="customer-avatar">
+              <img src={testimonial.image} alt={testimonial.puppyName} loading="lazy">
+            </div>
+            <div class="customer-info">
+              <h4 class="customer-name">{testimonial.name}</h4>
+              <p class="customer-location">{testimonial.location}</p>
+            </div>
+            <div class="rating">
+              {Array(testimonial.rating).fill(null).map(() => (
+                <svg class="star" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              ))}
+            </div>
+          </div>
+          <p class="testimonial-text">"{testimonial.text}"</p>
+          <span class="puppy-tag">
+            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            Adopted {testimonial.puppyName}
+          </span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials-section {
+    display: block;
+    font-family: var(--font-family, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif);
+    background: linear-gradient(135deg, #e08839 0%, #8B0000 100%);
+    padding: 4rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .testimonials-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M30 30c2 0 3.5 1.5 3.5 3.5S32 37 30 37s-3.5-1.5-3.5-3.5S28 30 30 30zm-15 0c2 0 3.5 1.5 3.5 3.5S17 37 15 37s-3.5-1.5-3.5-3.5S13 30 15 30zm30 0c2 0 3.5 1.5 3.5 3.5S47 37 45 37s-3.5-1.5-3.5-3.5S43 30 45 30z'/%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .testimonials-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    backdrop-filter: blur(10px);
+  }
+
+  .section-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: white;
+    margin: 0 0 0.75rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .testimonial-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.75rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  .testimonial-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .customer-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #f19645;
+  }
+
+  .customer-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .customer-info {
+    flex: 1;
+  }
+
+  .customer-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #2a2a2a;
+    margin: 0 0 0.25rem;
+  }
+
+  .customer-location {
+    font-size: 0.85rem;
+    color: #666;
+    margin: 0;
+  }
+
+  .rating {
+    display: flex;
+    gap: 0.15rem;
+  }
+
+  .star {
+    width: 18px;
+    height: 18px;
+    fill: #FFD700;
+  }
+
+  .testimonial-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #555;
+    margin: 0 0 1rem;
+    font-style: italic;
+  }
+
+  .puppy-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #faf5eb;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    color: #f19645;
+    font-weight: 600;
+  }
+
+  .puppy-tag svg {
+    width: 16px;
+    height: 16px;
+    fill: #e08839;
+  }
+
+  @media (max-width: 900px) {
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .testimonials-section {
+      padding: 3rem 1rem;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+    }
+
+    .testimonial-card {
+      padding: 1.25rem;
+    }
+  }
+</style>

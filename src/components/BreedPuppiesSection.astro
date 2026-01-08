@@ -1,0 +1,513 @@
+---
+// BreedPuppiesSection component - Displays puppies for a specific breed
+import type { Puppy } from '../lib/woocommerce';
+
+interface Props {
+  puppies: Puppy[];
+  breedName: string;
+  holidayMessage: string;
+}
+
+const { puppies, breedName, holidayMessage } = Astro.props;
+
+const comfortMessage = "We prioritize puppy comfort. Our dedicated team and travel partners always put the health and wellbeing of your puppy first, making sure they arrive safely, and as quickly as possible.";
+---
+
+<section class="puppies-section" id="puppies">
+  <div class="section-header">
+    <h2 class="section-title">Available {breedName}</h2>
+    <p class="section-subtitle">{holidayMessage}</p>
+  </div>
+
+  <div class="puppies-container">
+    {puppies.length > 0 ? (
+      <div class="puppy-list">
+        {puppies.map((puppy) => (
+          <article class="puppy-card">
+            <div class="puppy-image">
+              <img src={puppy.image} alt={puppy.imageAlt || puppy.name} loading="lazy">
+            </div>
+
+            <div class="puppy-info">
+              <h3 class="puppy-name">{puppy.name}</h3>
+              <div class="puppy-details">
+                <p class="detail-row"><strong>Breed:</strong> {puppy.breed}</p>
+                <p class="detail-row"><strong>Status:</strong> Available</p>
+              </div>
+
+              <div class="puppy-features">
+                <div class="feature">
+                  <span class="feature-check">
+                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  </span>
+                  Lifetime health guarantee
+                </div>
+                <div class="feature">
+                  <span class="feature-check">
+                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  </span>
+                  Potty and crate trained
+                </div>
+                <div class="feature">
+                  <span class="feature-check">
+                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  </span>
+                  Up to date vaccinations
+                </div>
+                <div class="feature">
+                  <span class="feature-check">
+                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  </span>
+                  Up to date de-worming
+                </div>
+                <div class="feature">
+                  <span class="feature-check">
+                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  </span>
+                  Starter Kit included
+                </div>
+              </div>
+
+              <button class="btn-email" onclick={`openContactPopup('${puppy.name.replace(/'/g, "\\'")}')`}>
+                Contact Us
+              </button>
+            </div>
+
+            <div class="puppy-sidebar">
+              <p class="availability">Ready for a new home</p>
+
+              <div class="sidebar-buttons">
+                <button class="btn-inquiry" onclick={`openContactPopup('${puppy.name.replace(/'/g, "\\'")}')`}>
+                  Inquire Now
+                </button>
+                <button class="btn-text" onclick={`openContactPopup('${puppy.name.replace(/'/g, "\\'")}')`}>
+                  Send Message
+                </button>
+                <button class="btn-contact" onclick={`openContactPopup('${puppy.name.replace(/'/g, "\\'")}')`}>
+                  Contact Us
+                </button>
+              </div>
+
+              <div class="puppy-description">
+                <p class="description-label"><strong>About This Puppy:</strong></p>
+                <p class="description-text">{puppy.description}</p>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    ) : (
+      <div class="no-puppies">
+        <h3>No puppies currently available</h3>
+        <p>Check back soon! We regularly have new litters. Contact us to be notified when new {breedName} become available.</p>
+        <button class="btn-notify" onclick="openContactPopup('New Puppy Notification')">
+          Notify Me
+        </button>
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .puppies-section {
+    display: block;
+    font-family: var(--font-family, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif);
+    background: #fff;
+    padding: 3rem 1.5rem;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .section-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #2a2a2a;
+    margin: 0 0 0.5rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    color: #666;
+    margin: 0;
+    max-width: 1000px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .puppies-container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .puppy-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .puppy-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.75rem;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid #eee;
+    padding: 0.75rem;
+    align-items: stretch;
+  }
+
+  .puppy-image {
+    width: 100%;
+    height: 100%;
+    min-height: 280px;
+    background: #f5f5f5;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .puppy-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 8px;
+  }
+
+  .puppy-info {
+    padding: 1rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .puppy-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2a2a2a;
+    margin: 0 0 0.5rem;
+  }
+
+  .puppy-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .detail-row {
+    font-size: 0.9rem;
+    color: #444;
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .detail-row strong {
+    color: #333;
+  }
+
+  .puppy-features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .feature {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #444;
+  }
+
+  .feature-check {
+    width: 20px;
+    height: 20px;
+    background: #f19645;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .feature-check svg {
+    width: 12px;
+    height: 12px;
+    fill: white;
+  }
+
+  .btn-email {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: #e08839;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: fit-content;
+  }
+
+  .btn-email:hover {
+    background: #f19645;
+  }
+
+  .puppy-sidebar {
+    background: #ffffff;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-left: 1px solid #eee;
+  }
+
+  .availability {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0 0 1rem;
+  }
+
+  .btn-inquiry {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: #f19645;
+    color: white;
+    padding: 0.75rem 1.25rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+  }
+
+  .btn-inquiry:hover {
+    background: #e08839;
+  }
+
+  .btn-text {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: #f19645;
+    color: white;
+    padding: 0.75rem 1.25rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+  }
+
+  .btn-text:hover {
+    background: #06372a;
+    color: white;
+  }
+
+  .btn-contact {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: #e08839;
+    color: white;
+    padding: 0.75rem 1.25rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+  }
+
+  .btn-contact:hover {
+    background: #8B0000;
+    color: white;
+  }
+
+  .sidebar-buttons {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .puppy-description {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e0d5;
+  }
+
+  .description-label {
+    font-size: 0.95rem;
+    color: #f19645;
+    margin: 0 0 0.5rem;
+  }
+
+  .description-text {
+    font-size: 0.85rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+    font-style: italic;
+  }
+
+  .no-puppies {
+    text-align: center;
+    padding: 3rem;
+    background: #f9f9f9;
+    border-radius: 12px;
+  }
+
+  .no-puppies h3 {
+    font-size: 1.5rem;
+    color: #2a2a2a;
+    margin: 0 0 0.75rem;
+  }
+
+  .no-puppies p {
+    color: #666;
+    margin: 0 0 1.5rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn-notify {
+    background: #f19645;
+    color: white;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .btn-notify:hover {
+    background: #e08839;
+  }
+
+  @media (max-width: 1024px) {
+    .puppy-image {
+      min-height: 260px;
+    }
+
+    .puppy-name {
+      font-size: 1.35rem;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .puppy-card {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .puppy-image {
+      grid-column: 1;
+      grid-row: 1 / 3;
+      height: 100%;
+      min-height: 300px;
+    }
+
+    .puppy-info {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .puppy-sidebar {
+      grid-column: 2;
+      grid-row: 2;
+      border-left: none;
+      border-top: 1px solid #eee;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .puppies-section {
+      padding: 2rem 1rem;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+    }
+
+    .puppy-card {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .puppy-image {
+      grid-column: 1;
+      grid-row: 1;
+      height: auto;
+      min-height: 280px;
+    }
+
+    .puppy-info {
+      grid-column: 1;
+      grid-row: 2;
+      padding: 1rem 1rem 0.5rem;
+    }
+
+    .puppy-sidebar {
+      grid-column: 1;
+      grid-row: 3;
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .btn-text {
+      display: inline-flex;
+    }
+
+    .btn-contact {
+      display: inline-flex;
+    }
+
+    .sidebar-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .sidebar-buttons .btn-text,
+    .sidebar-buttons .btn-contact {
+      flex: 1;
+      margin-bottom: 0;
+    }
+
+    .puppy-name {
+      font-size: 1.35rem;
+    }
+
+    .btn-inquiry {
+      display: none;
+    }
+
+    .btn-email {
+      display: none;
+    }
+  }
+</style>

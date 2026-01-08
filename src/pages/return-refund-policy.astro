@@ -1,0 +1,168 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import InfoBox from '../components/InfoBox.astro';
+---
+
+<BaseLayout
+  title="Return & Refund Policy | Montessa Kennel"
+  description="Our return and refund policy for our puppies at Montessa Kennel."
+  keywords="puppy return policy, refund policy, breeder policy"
+>
+  <PageHeader
+    title="Return & Refund Policy"
+    subtitle="Understanding our policies for your peace of mind"
+  />
+
+  <section class="info-content">
+    <div class="content-container">
+      <h2>Our Return & Refund Policy</h2>
+      <p>We want every puppy to find their forever home. However, we understand that sometimes circumstances change. Here's our policy to ensure fair treatment for both families and puppies.</p>
+
+      <InfoBox type="info" title="Our Commitment">
+        <p>We never want a puppy to end up in a shelter. If you can no longer care for your puppy at any point in their life, please contact us first. We will help find them a loving new home.</p>
+      </InfoBox>
+
+      <h3>Deposits</h3>
+      <ul>
+        <li>A deposit is required to reserve a puppy</li>
+        <li>Deposits are non-refundable but can be transferred to another puppy</li>
+        <li>If we are unable to provide your reserved puppy, your deposit will be fully refunded or transferred</li>
+      </ul>
+
+      <h3>Returns Within 72 Hours</h3>
+      <p>If you need to return your puppy within 72 hours of pickup/delivery:</p>
+      <ul>
+        <li>Puppy must be returned in the same health condition</li>
+        <li>A partial refund may be issued minus the deposit and any delivery fees</li>
+        <li>Must provide veterinary records from your vet visit</li>
+      </ul>
+
+      <h3>Health-Related Returns</h3>
+      <p>If your puppy is diagnosed with a genetic health condition covered by our guarantee:</p>
+      <ul>
+        <li>Contact us immediately with veterinary documentation</li>
+        <li>We will work with you to find the best solution</li>
+        <li>Options include replacement puppy, partial refund, or veterinary cost assistance</li>
+      </ul>
+
+      <InfoBox type="warning" title="Not Covered">
+        <ul>
+          <li>Health issues caused by accidents, neglect, or improper care</li>
+          <li>Conditions resulting from failure to continue vaccinations</li>
+          <li>Issues arising from feeding inappropriate food</li>
+          <li>Behavioral issues (we're happy to provide training guidance)</li>
+        </ul>
+      </InfoBox>
+
+      <h3>Rehoming Assistance</h3>
+      <p>If at any point you can no longer keep your puppy, please reach out to us. We offer:</p>
+      <ul>
+        <li>Help finding a suitable new home</li>
+        <li>Listing assistance on our network</li>
+        <li>Guidance through the rehoming process</li>
+      </ul>
+
+      <h3>Contact Us</h3>
+      <p>For any return, refund, or rehoming inquiries, please contact us directly. We handle each situation individually and work to find the best outcome for everyone involved, especially the puppy.</p>
+
+      <div class="cta-box">
+        <h3>Have Questions?</h3>
+        <p>We're here to help you understand our policies.</p>
+        <a href="/contact" class="btn">Contact Us</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .info-content {
+    padding: 4rem 1.5rem;
+    background: #fff;
+  }
+
+  .content-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2a2a2a;
+    margin: 0 0 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #f19645;
+    margin: 2rem 0 1rem;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #5a5a5a;
+    line-height: 1.8;
+    margin: 0 0 1rem;
+  }
+
+  ul {
+    margin: 0 0 1.5rem 1.5rem;
+    color: #5a5a5a;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+  }
+
+  .cta-box {
+    background: linear-gradient(135deg, #f19645, #e08839);
+    color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .cta-box h3 {
+    color: white;
+    margin: 0 0 0.5rem;
+  }
+
+  .cta-box p {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 0 1.5rem;
+  }
+
+  .btn {
+    display: inline-block;
+    background: #e08839;
+    color: white;
+    padding: 0.875rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn:hover {
+    background: #d63c3c;
+  }
+
+  @media (max-width: 768px) {
+    .info-content {
+      padding: 3rem 1rem;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+    }
+  }
+</style>

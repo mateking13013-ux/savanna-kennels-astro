@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import PuppiesSection from '../components/PuppiesSection.astro';
+import TestimonialsPreview from '../components/TestimonialsPreview.astro';
+import ExpensesSection from '../components/ExpensesSection.astro';
+import FaqBooksSection from '../components/FaqBooksSection.astro';
+---
+
+<BaseLayout
+  title="Available Puppies | Montessa Kennel"
+  description="Browse our available our puppies at Montessa Kennel. Find your perfect furry companion this holiday season."
+  keywords="puppy puppies for sale, available puppies, puppies, miniature puppy"
+  ogTitle="Available Puppies | Montessa Kennel"
+  ogDescription="Browse our adorable our puppies available for adoption. Health guaranteed, vet checked, and ready for their forever homes."
+>
+  <PageHeader
+    title="Available Puppies"
+    subtitle="Find your perfect furry companion from our adorable our puppies"
+  />
+  <PuppiesSection />
+  <TestimonialsPreview />
+  <ExpensesSection />
+  <FaqBooksSection />
+</BaseLayout>

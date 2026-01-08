@@ -1,0 +1,209 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import InfoBox from '../components/InfoBox.astro';
+---
+
+<BaseLayout
+  title="Vaccinations | Montessa Kennel"
+  description="Learn about our vaccination schedule and protocols for our puppies."
+  keywords="puppy vaccinations, puppy shots, puppy immunization"
+>
+  <PageHeader
+    title="Vaccinations"
+    subtitle="Keeping your puppy healthy and protected"
+  />
+
+  <section class="info-content">
+    <div class="content-container">
+      <h2>Puppy Vaccination Schedule</h2>
+      <p>Proper vaccination is essential for your puppy's health. We ensure all our puppies receive age-appropriate vaccinations before going to their new homes.</p>
+
+      <InfoBox type="success" title="Vaccinations Completed Before Adoption">
+        <p>Each puppy receives their first round of core vaccinations, typically administered at 6-8 weeks of age. This includes the DHPP vaccine which protects against:</p>
+        <ul>
+          <li>Distemper</li>
+          <li>Hepatitis (Adenovirus)</li>
+          <li>Parvovirus</li>
+          <li>Parainfluenza</li>
+        </ul>
+      </InfoBox>
+
+      <h3>Recommended Vaccination Schedule</h3>
+      <p>Your veterinarian will continue the vaccination schedule after you bring your puppy home:</p>
+
+      <table class="vaccine-table">
+        <thead>
+          <tr>
+            <th>Age</th>
+            <th>Vaccines</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>6-8 weeks</td>
+            <td>DHPP (1st dose) - Administered by us</td>
+          </tr>
+          <tr>
+            <td>10-12 weeks</td>
+            <td>DHPP (2nd dose)</td>
+          </tr>
+          <tr>
+            <td>14-16 weeks</td>
+            <td>DHPP (3rd dose), Rabies</td>
+          </tr>
+          <tr>
+            <td>12-16 weeks</td>
+            <td>Bordetella (if needed)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <InfoBox type="warning" title="Important">
+        <p>Until your puppy completes their full vaccination series, avoid areas where unvaccinated dogs may have been. This includes dog parks, pet stores, and sidewalks in high-traffic areas.</p>
+      </InfoBox>
+
+      <h3>Deworming Schedule</h3>
+      <p>All puppies are dewormed regularly starting at 2 weeks of age. This protects against common intestinal parasites and ensures your puppy arrives healthy.</p>
+
+      <h3>Records Provided</h3>
+      <p>When you receive your puppy, you'll get complete vaccination and deworming records including:</p>
+      <ul>
+        <li>Dates of all vaccinations administered</li>
+        <li>Vaccine brand and lot numbers</li>
+        <li>Deworming medication and dates</li>
+        <li>Recommendations for future vaccinations</li>
+      </ul>
+
+      <div class="cta-box">
+        <h3>Questions About Vaccinations?</h3>
+        <p>We're happy to discuss our vaccination protocols with you.</p>
+        <a href="/contact" class="btn">Contact Us</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .info-content {
+    padding: 4rem 1.5rem;
+    background: #fff;
+  }
+
+  .content-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2a2a2a;
+    margin: 0 0 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #f19645;
+    margin: 2rem 0 1rem;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #5a5a5a;
+    line-height: 1.8;
+    margin: 0 0 1rem;
+  }
+
+  ul {
+    margin: 0 0 1.5rem 1.5rem;
+    color: #5a5a5a;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+  }
+
+  .vaccine-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #faf5eb;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 1.5rem 0;
+  }
+
+  .vaccine-table th,
+  .vaccine-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e8e0d5;
+  }
+
+  .vaccine-table th {
+    background: #f19645;
+    color: white;
+    font-weight: 600;
+  }
+
+  .vaccine-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .cta-box {
+    background: linear-gradient(135deg, #f19645, #e08839);
+    color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .cta-box h3 {
+    color: white;
+    margin: 0 0 0.5rem;
+  }
+
+  .cta-box p {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 0 1.5rem;
+  }
+
+  .btn {
+    display: inline-block;
+    background: #e08839;
+    color: white;
+    padding: 0.875rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn:hover {
+    background: #d63c3c;
+  }
+
+  @media (max-width: 768px) {
+    .info-content {
+      padding: 3rem 1rem;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+    }
+
+    .vaccine-table th,
+    .vaccine-table td {
+      padding: 0.75rem;
+      font-size: 0.9rem;
+    }
+  }
+</style>

@@ -1,0 +1,179 @@
+---
+// ExpensesSection component
+import { expenses, expenseNotes } from '../data/faqs';
+---
+
+<section class="expenses-section">
+  <div class="section-container">
+    <h2 class="section-title">Expenses For A puppy Puppy</h2>
+    <p class="section-intro">Here's a simple table illustrating potential monthly expenses for a puppy puppy:</p>
+
+    <table class="expenses-table">
+      <thead>
+        <tr>
+          <th>Expense Item</th>
+          <th>Estimated Monthly Cost</th>
+        </tr>
+      </thead>
+      <tbody>
+        {expenses.map((expense) => (
+          <tr>
+            <td>{expense.item}</td>
+            <td>{expense.cost}</td>
+          </tr>
+        ))}
+        <tr class="total-row">
+          <td>Total Estimated Cost</td>
+          <td>$270 – $455</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="notes-section">
+      <h3>Notes:</h3>
+      <ul class="notes-list">
+        {expenseNotes.map((note) => (
+          <li><strong>{note.label}</strong>: {note.text}</li>
+        ))}
+      </ul>
+      <p class="notes-footer">Feel free to adjust the figures based on your specific situation or location!</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .expenses-section {
+    display: block;
+    font-family: var(--font-family, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif);
+    background: #f8f6f3;
+    padding: 4rem 1.5rem;
+  }
+
+  .section-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #2a2a2a;
+    margin: 0 0 1.5rem;
+  }
+
+  .section-intro {
+    font-size: 1rem;
+    color: #5a5a5a;
+    line-height: 1.7;
+    margin: 0 0 2rem;
+  }
+
+  .expenses-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    margin-bottom: 2.5rem;
+  }
+
+  .expenses-table th,
+  .expenses-table td {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+  }
+
+  .expenses-table th {
+    background: #f8f6f3;
+    font-weight: 700;
+    color: #2a2a2a;
+    font-size: 0.95rem;
+  }
+
+  .expenses-table td {
+    font-size: 0.95rem;
+    color: #444;
+  }
+
+  .expenses-table td:first-child {
+    font-weight: 600;
+    color: #2a2a2a;
+  }
+
+  .expenses-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .expenses-table tr:hover td {
+    background: #fafafa;
+  }
+
+  .total-row td {
+    background: #f8f6f3 !important;
+    font-weight: 700 !important;
+    color: #f19645 !important;
+    font-size: 1rem !important;
+  }
+
+  .notes-section h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2a2a2a;
+    margin: 0 0 1.25rem;
+  }
+
+  .notes-list {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin: 0 0 1.5rem;
+  }
+
+  .notes-list li {
+    font-size: 0.95rem;
+    color: #5a5a5a;
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+  }
+
+  .notes-list li strong {
+    color: #2a2a2a;
+  }
+
+  .notes-footer {
+    font-size: 0.95rem;
+    color: #5a5a5a;
+    line-height: 1.7;
+    margin: 0;
+    font-style: italic;
+  }
+
+  @media (max-width: 768px) {
+    .expenses-section {
+      padding: 3rem 1rem;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+    }
+
+    .expenses-table th,
+    .expenses-table td {
+      padding: 0.85rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    .notes-section h3 {
+      font-size: 1.25rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .expenses-table th,
+    .expenses-table td {
+      padding: 0.75rem;
+      font-size: 0.85rem;
+    }
+  }
+</style>

@@ -1,0 +1,168 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import InfoBox from '../components/InfoBox.astro';
+---
+
+<BaseLayout
+  title="About The Breed | Montessa Kennel"
+  description="Learn about the puppy breed - history, characteristics, and what makes them special."
+  keywords="puppy breed, puppy facts, puppy history"
+>
+  <PageHeader
+    title="About The Breed"
+    subtitle="Discover what makes puppys such beloved companions"
+  />
+
+  <section class="info-content">
+    <div class="content-container">
+      <h2>The puppy: A Beloved Companion</h2>
+      <p>puppys, affectionately known as "puppies" or "sausage dogs," are one of the most recognizable and beloved dog breeds in the world. Their unique appearance and spirited personality have won hearts for centuries.</p>
+
+      <h3>History</h3>
+      <p>puppys originated in Germany over 300 years ago. The name "puppy" translates to "badger dog" - reflecting their original purpose as hunting dogs bred to dig into badger dens. Their elongated body and short legs were perfect for navigating underground burrows.</p>
+      <p>Today, while most puppys are cherished family pets, they retain their courageous spirit and keen sense of smell from their hunting heritage.</p>
+
+      <h3>Varieties</h3>
+      <p>puppys come in two sizes and three coat types:</p>
+
+      <InfoBox type="info" title="Sizes">
+        <ul>
+          <li><strong>Standard:</strong> 16-32 pounds</li>
+          <li><strong>Miniature:</strong> Under 11 pounds</li>
+        </ul>
+      </InfoBox>
+
+      <InfoBox type="info" title="Coat Types">
+        <ul>
+          <li><strong>Smooth:</strong> Short, shiny coat - easiest to maintain</li>
+          <li><strong>Long-haired:</strong> Silky, flowing coat - elegant appearance</li>
+          <li><strong>Wire-haired:</strong> Rough, bristly coat - most terrier-like personality</li>
+        </ul>
+      </InfoBox>
+
+      <h3>Colors and Patterns</h3>
+      <p>puppys come in a stunning variety of colors and patterns:</p>
+      <ul>
+        <li><strong>Solid colors:</strong> Red, cream, black and tan, chocolate and tan</li>
+        <li><strong>Patterns:</strong> Dapple, brindle, piebald, sable</li>
+        <li><strong>Two-tone:</strong> Black and cream, chocolate and cream, and more</li>
+      </ul>
+
+      <h3>Temperament</h3>
+      <p>puppys are known for their:</p>
+      <ul>
+        <li><strong>Courage:</strong> Despite their small size, they're brave and confident</li>
+        <li><strong>Loyalty:</strong> Deeply devoted to their families</li>
+        <li><strong>Intelligence:</strong> Quick learners (though sometimes stubborn!)</li>
+        <li><strong>Playfulness:</strong> Love to play and entertain</li>
+        <li><strong>Alertness:</strong> Make excellent watchdogs</li>
+      </ul>
+
+      <InfoBox type="paw" title="Did You Know?">
+        <p>puppys have been owned by many famous people throughout history, including Pablo Picasso, Andy Warhol, and Queen Victoria!</p>
+      </InfoBox>
+
+      <h3>Life Expectancy</h3>
+      <p>With proper care, puppys typically live 12-16 years, making them a long-term companion for your family.</p>
+
+      <div class="cta-box">
+        <h3>Ready to Welcome a puppy?</h3>
+        <p>Browse our available puppies and find your perfect match.</p>
+        <a href="/available-puppies" class="btn">View Available Puppies</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .info-content {
+    padding: 4rem 1.5rem;
+    background: #fff;
+  }
+
+  .content-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2a2a2a;
+    margin: 0 0 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #f19645;
+    margin: 2rem 0 1rem;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #5a5a5a;
+    line-height: 1.8;
+    margin: 0 0 1rem;
+  }
+
+  ul {
+    margin: 0 0 1.5rem 1.5rem;
+    color: #5a5a5a;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+  }
+
+  .cta-box {
+    background: linear-gradient(135deg, #f19645, #e08839);
+    color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .cta-box h3 {
+    color: white;
+    margin: 0 0 0.5rem;
+  }
+
+  .cta-box p {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 0 1.5rem;
+  }
+
+  .btn {
+    display: inline-block;
+    background: #e08839;
+    color: white;
+    padding: 0.875rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn:hover {
+    background: #d63c3c;
+  }
+
+  @media (max-width: 768px) {
+    .info-content {
+      padding: 3rem 1rem;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+    }
+  }
+</style>

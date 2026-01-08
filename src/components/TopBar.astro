@@ -1,0 +1,59 @@
+---
+// TopBar component - Announcement bar
+---
+
+<div class="top-bar">
+  <span class="message">Find Your Perfect Furry Companion Today</span>
+  <a href="/contact" class="btn">Contact Us</a>
+</div>
+
+<style>
+  .top-bar {
+    display: block;
+    background: #262626;
+    color: white;
+    font-family: var(--font-family, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif);
+    padding: 0.5rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .message {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .btn {
+    background: white;
+    color: #f19645;
+    padding: 0.35rem 0.9rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+
+  .btn:hover {
+    background: #f0f0f0;
+    transform: scale(1.02);
+  }
+
+  @media (max-width: 768px) {
+    .top-bar {
+      padding: 0.4rem 1rem;
+    }
+
+    .message {
+      font-size: 0.8rem;
+    }
+
+    .btn {
+      font-size: 0.75rem;
+      padding: 0.3rem 0.75rem;
+    }
+  }
+</style>

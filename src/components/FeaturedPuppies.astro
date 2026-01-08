@@ -1,0 +1,253 @@
+---
+// FeaturedPuppies component - displays featured puppies from WP media
+const featuredPuppies = [
+  { name: 'Tank', gender: 'Male', image: 'https://savannakennels.co.za/wp-content/uploads/2025/08/TANK.jpg' },
+  { name: 'Victor', gender: 'Male', image: 'https://savannakennels.co.za/wp-content/uploads/2025/05/VICTOR-2.jpeg' },
+  { name: 'Misha', gender: 'Female', image: 'https://savannakennels.co.za/wp-content/uploads/2025/05/MISHA-6.jpeg' },
+  { name: 'Lottie', gender: 'Female', image: 'https://savannakennels.co.za/wp-content/uploads/2025/05/LOTTIE-11.jpeg' },
+  { name: 'Bruno', gender: 'Male', image: 'https://savannakennels.co.za/wp-content/uploads/2025/01/MOM-AND-DAD00.jpg' },
+];
+---
+
+<section class="featured-section">
+  <div class="section-header">
+    <h2 class="section-title">
+      Featured Puppies
+      <span class="bone-icon">🦴</span>
+    </h2>
+    <p class="section-subtitle">Explore Our Adorable Puppies Ready for Their Forever Homes!</p>
+  </div>
+
+  <div class="puppies-container">
+    <div class="puppies-grid">
+      {featuredPuppies.map((puppy) => (
+        <article class="puppy-card">
+          <div class="card-image">
+            <span class="rating-badge">
+              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              5.0
+            </span>
+            <img src={puppy.image} alt={puppy.name} loading="lazy">
+          </div>
+          <div class="card-content">
+            <h3 class="puppy-name">{puppy.name}</h3>
+            <div class="card-stats">
+              <span>Available</span>
+              <span>Ready Now</span>
+            </div>
+            <button class="btn-contact" onclick={`openContactPopup('${puppy.name} (${puppy.gender})')`}>
+              Inquire Now
+            </button>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .featured-section {
+    display: block;
+    font-family: var(--font-family, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif);
+    background-color: #f19645;
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Cpath d='M20 20c2.5 0 4.5 2 4.5 4.5S22.5 29 20 29s-4.5-2-4.5-4.5S17.5 20 20 20zm20 0c2.5 0 4.5 2 4.5 4.5S42.5 29 40 29s-4.5-2-4.5-4.5S37.5 20 40 20zm-10 8c2.5 0 4.5 2 4.5 4.5S32.5 37 30 37s-4.5-2-4.5-4.5S27.5 28 30 28zm-5 10c3.5 0 6.5 3 6.5 6.5S28.5 51 25 51s-6.5-3-6.5-6.5S21.5 38 25 38zm10 0c3.5 0 6.5 3 6.5 6.5S38.5 51 35 51s-6.5-3-6.5-6.5S31.5 38 35 38zm-5 14c4 0 7 3 7 7s-3 7-7 7-7-3-7-7 3-7 7-7z'/%3E%3C/g%3E%3C/svg%3E");
+    padding: 3rem 1.5rem;
+    position: relative;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    margin: 0 0 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .bone-icon {
+    font-size: 1.5rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+    font-style: italic;
+  }
+
+  .puppies-container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .puppies-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.25rem;
+  }
+
+  .puppy-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .puppy-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-image {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+    background: #f9f9f9;
+    padding: 0.5rem;
+  }
+
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 12px;
+  }
+
+  .rating-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: #e08839;
+    color: white;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    z-index: 1;
+  }
+
+  .rating-badge svg {
+    width: 14px;
+    height: 14px;
+    fill: white;
+  }
+
+  .card-content {
+    padding: 0.75rem 0.5rem;
+    border-top: 2px dashed #eee;
+  }
+
+  .puppy-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #e08839;
+    margin: 0 0 0.5rem;
+  }
+
+  .card-stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #666;
+    margin-bottom: 0.35rem;
+  }
+
+  .btn-contact {
+    display: block;
+    width: 100%;
+    background: #f19645;
+    color: white;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .btn-contact:hover {
+    background: #e08839;
+  }
+
+  @media (max-width: 1200px) {
+    .puppies-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .puppy-card:nth-child(5) {
+      display: none;
+    }
+
+    .card-image {
+      height: 200px;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .puppies-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .puppy-card:nth-child(4),
+    .puppy-card:nth-child(5) {
+      display: none;
+    }
+
+    .card-image {
+      height: 180px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .featured-section {
+      padding: 2rem 1rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+    }
+
+    .puppies-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+
+    .puppy-card:nth-child(3),
+    .puppy-card:nth-child(4),
+    .puppy-card:nth-child(5) {
+      display: none;
+    }
+
+    .card-image {
+      height: 160px;
+    }
+
+    .card-content {
+      padding: 1rem 0.75rem;
+    }
+
+    .puppy-name {
+      font-size: 1rem;
+    }
+
+    .current-price {
+      font-size: 1.15rem;
+    }
+  }
+</style>

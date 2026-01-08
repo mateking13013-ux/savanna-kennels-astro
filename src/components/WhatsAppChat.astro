@@ -1,0 +1,48 @@
+---
+// WhatsApp Live Chat Button
+const whatsappNumber = "27729593730";
+const message = "Hi! I'm interested in your puppies at Montessa Kennel.";
+const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+---
+
+<a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="whatsapp-chat" aria-label="Chat on WhatsApp">
+  <img src="/images/image copy 2.png" alt="Chat with us on WhatsApp" />
+</a>
+
+<style>
+  .whatsapp-chat {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+  }
+
+  .whatsapp-chat:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .whatsapp-chat img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  @media (max-width: 768px) {
+    .whatsapp-chat {
+      width: 60px;
+      height: 60px;
+      bottom: 15px;
+      right: 15px;
+    }
+  }
+</style>

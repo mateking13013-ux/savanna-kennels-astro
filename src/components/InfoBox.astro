@@ -1,0 +1,62 @@
+---
+// InfoBox component - Colored info boxes
+interface Props {
+  type?: 'info' | 'success' | 'warning' | 'tip' | 'paw';
+  title?: string;
+}
+
+const { type = 'info', title } = Astro.props;
+
+const types = {
+  info: { border: '#c9a77a', bg: '#faf5eb' },
+  success: { border: '#228B22', bg: '#f5faf5' },
+  warning: { border: '#e08839', bg: '#fdf8f8' },
+  tip: { border: '#c9a77a', bg: '#faf5eb' },
+  paw: { border: '#e08839', bg: '#fdf8f8' }
+};
+
+const config = types[type] || types.info;
+---
+
+<div class="info-box" style={`background: ${config.bg}; border-left-color: ${config.border};`}>
+  {title && <h4 class="title">{title}</h4>}
+  <div class="content">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .info-box {
+    display: block;
+    margin: 1.25rem 0;
+    border-left: 3px solid;
+    border-radius: 0 6px 6px 0;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #3a3a3a;
+    margin: 0 0 0.5rem;
+  }
+
+  .content {
+    color: #5a5a5a;
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+
+  .content :global(p:last-child) {
+    margin-bottom: 0;
+  }
+
+  .content :global(ul) {
+    margin: 0.5rem 0 0 1.25rem;
+    padding: 0;
+  }
+
+  .content :global(li) {
+    margin-bottom: 0.35rem;
+  }
+</style>

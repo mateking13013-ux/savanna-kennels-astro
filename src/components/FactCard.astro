@@ -1,0 +1,39 @@
+---
+// FactCard component
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div class="fact-card">
+  <h3 class="title">{title}</h3>
+  <div class="content">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .fact-card {
+    display: block;
+    background: #faf5eb;
+    border-radius: 6px;
+    padding: 1.5rem;
+    height: 100%;
+    border: 1px solid #e8e0d5;
+  }
+
+  .title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #3a3a3a;
+    margin: 0 0 0.75rem;
+  }
+
+  .content {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #5a5a5a;
+  }
+</style>

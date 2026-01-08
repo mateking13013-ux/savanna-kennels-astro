@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import BreedPuppiesSection from '../../components/BreedPuppiesSection.astro';
+import ContactPopup from '../../components/ContactPopup.astro';
+import TestimonialsPreview from '../../components/TestimonialsPreview.astro';
+import { getBreeds, getBreedBySlug, getPuppiesByBreed, getBreedSeoContent } from '../../lib/woocommerce';
+
+// Generate static paths for all breeds
+export async function getStaticPaths() {
+  const breeds = await getBreeds();
+
+  return breeds.map((breed) => ({
+    params: { slug: breed.slug },
+    props: { breed },
+  }));
+}
+
+const { slug } = Astro.params;
+const { breed } = Astro.props;
+
+// Fetch puppies for this breed
+const puppies = await getPuppiesByBreed(breed.id);
+
+// Get SEO content for this breed
+const seoContent = getBreedSeoContent(breed.name);
+
+// Breadcrumb structure
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Breeds', href: '/breeds' },
+  { label: breed.name }
+];
+---
+
+<BaseLayout
+  title={seoContent.title}
+  description={seoContent.description}
+  keywords={`${breed.name.toLowerCase()}, ${breed.name.toLowerCase()} for sale, buy ${breed.name.toLowerCase()}, ${breed.name.toLowerCase()} breeder`}
+  ogTitle={seoContent.title}
+  ogDescription={seoContent.description}
+>
+  <PageHeader
+    title={breed.name}
+    subtitle={seoContent.heroSubtitle}
+    breadcrumbs={breadcrumbs}
+  />
+
+  <BreedPuppiesSection
+    puppies={puppies}
+    breedName={breed.name}
+    holidayMessage={seoContent.holidayMessage}
+  />
+
+  <TestimonialsPreview />
+
+  <ContactPopup />
+</BaseLayout>

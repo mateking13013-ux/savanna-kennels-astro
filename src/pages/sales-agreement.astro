@@ -1,0 +1,185 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import InfoBox from '../components/InfoBox.astro';
+---
+
+<BaseLayout
+  title="Sales Agreement | Montessa Kennel"
+  description="Review our sales agreement terms for purchasing a puppy from Montessa Kennel."
+  keywords="puppy sales agreement, purchase contract, breeder contract"
+>
+  <PageHeader
+    title="Sales Agreement"
+    subtitle="Terms and conditions for purchasing a puppy"
+  />
+
+  <section class="info-content">
+    <div class="content-container">
+      <h2>Puppy Sales Agreement</h2>
+      <p>This agreement outlines the terms and conditions for purchasing a puppy from Montessa Kennel. Please read carefully before completing your purchase.</p>
+
+      <h3>Deposit & Payment</h3>
+      <ul>
+        <li>A non-refundable deposit is required to reserve your puppy</li>
+        <li>Deposits may be transferred to another puppy if your first choice becomes unavailable</li>
+        <li>Full payment is due before pickup or delivery</li>
+        <li>Accepted payment methods will be discussed at time of purchase</li>
+      </ul>
+
+      <h3>Health Guarantee</h3>
+      <p>All puppies come with our lifetime health guarantee against genetic defects. This includes:</p>
+      <ul>
+        <li>Protection against hereditary health conditions</li>
+        <li>First vaccinations and deworming completed</li>
+        <li>Veterinary health certificate</li>
+      </ul>
+
+      <InfoBox type="info" title="Your Responsibility">
+        <p>You agree to take your puppy to a licensed veterinarian within 72 hours of receiving them for a wellness check. This visit is at your expense and is required to validate the health guarantee.</p>
+      </InfoBox>
+
+      <h3>Buyer Obligations</h3>
+      <p>As the buyer, you agree to:</p>
+      <ul>
+        <li>Provide proper nutrition, shelter, and veterinary care</li>
+        <li>Keep the puppy as a house pet (not for outdoor-only living)</li>
+        <li>Not sell or transfer the puppy to pet stores, laboratories, or shelters</li>
+        <li>Contact us before rehoming if you can no longer care for the puppy</li>
+        <li>Continue the vaccination schedule as recommended by your vet</li>
+        <li>Spay/neuter at the appropriate age unless breeding rights are purchased</li>
+      </ul>
+
+      <h3>Breeding Rights</h3>
+      <p>Breeding rights are not included in the standard purchase price. If you're interested in breeding:</p>
+      <ul>
+        <li>Contact us to discuss breeding rights availability</li>
+        <li>Additional fee applies for breeding rights</li>
+        <li>We reserve the right to decline breeding rights requests</li>
+      </ul>
+
+      <h3>Returns</h3>
+      <p>Please review our <a href="/return-refund-policy">Return & Refund Policy</a> for details on returns and refunds.</p>
+
+      <h3>Limitation of Liability</h3>
+      <p>Our liability is limited to the terms stated in this agreement and our health guarantee. We are not responsible for:</p>
+      <ul>
+        <li>Veterinary bills beyond the guarantee terms</li>
+        <li>Injuries to the puppy after transfer of ownership</li>
+        <li>Issues arising from improper care or neglect</li>
+        <li>Behavioral issues (though we offer guidance)</li>
+      </ul>
+
+      <InfoBox type="warning" title="Important">
+        <p>By purchasing a puppy from Montessa Kennel, you acknowledge that you have read, understood, and agree to all terms in this sales agreement and our health guarantee.</p>
+      </InfoBox>
+
+      <div class="cta-box">
+        <h3>Questions About Our Agreement?</h3>
+        <p>We're happy to discuss any terms before you make your purchase.</p>
+        <a href="/contact" class="btn">Contact Us</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .info-content {
+    padding: 4rem 1.5rem;
+    background: #fff;
+  }
+
+  .content-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2a2a2a;
+    margin: 0 0 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #f19645;
+    margin: 2rem 0 1rem;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #5a5a5a;
+    line-height: 1.8;
+    margin: 0 0 1rem;
+  }
+
+  p a {
+    color: #f19645;
+    text-decoration: underline;
+  }
+
+  p a:hover {
+    color: #e08839;
+  }
+
+  ul {
+    margin: 0 0 1.5rem 1.5rem;
+    color: #5a5a5a;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+  }
+
+  .cta-box {
+    background: linear-gradient(135deg, #f19645, #e08839);
+    color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .cta-box h3 {
+    color: white;
+    margin: 0 0 0.5rem;
+  }
+
+  .cta-box p {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 0 1.5rem;
+  }
+
+  .btn {
+    display: inline-block;
+    background: #e08839;
+    color: white;
+    padding: 0.875rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn:hover {
+    background: #d63c3c;
+  }
+
+  @media (max-width: 768px) {
+    .info-content {
+      padding: 3rem 1rem;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+    }
+  }
+</style>

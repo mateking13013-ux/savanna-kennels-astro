@@ -1,0 +1,178 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import InfoBox from '../components/InfoBox.astro';
+---
+
+<BaseLayout
+  title="Basic Care | Montessa Kennel"
+  description="Essential care tips for your new puppy from Montessa Kennel."
+  keywords="puppy care, puppy care tips, dog care basics"
+>
+  <PageHeader
+    title="Basic Care"
+    subtitle="Everything you need to know about caring for your puppy"
+  />
+
+  <section class="info-content">
+    <div class="content-container">
+      <h2>Caring for Your puppy Puppy</h2>
+      <p>puppys are wonderful companions that require specific care due to their unique body shape. Here's everything you need to know to keep your new puppy healthy and happy.</p>
+
+      <h3>Feeding</h3>
+      <p>Proper nutrition is essential for your puppy's health and longevity.</p>
+      <ul>
+        <li><strong>Puppies (8-12 weeks):</strong> Feed 3-4 times daily with high-quality puppy food</li>
+        <li><strong>Puppies (3-6 months):</strong> Reduce to 3 meals daily</li>
+        <li><strong>Adults (6+ months):</strong> 2 meals daily is typically sufficient</li>
+      </ul>
+
+      <InfoBox type="warning" title="Important">
+        <p>Avoid overfeeding! puppys are prone to obesity, which puts extra strain on their long backs. Keep treats to a minimum and maintain a healthy weight.</p>
+      </InfoBox>
+
+      <h3>Exercise</h3>
+      <p>While puppys have moderate exercise needs, regular activity is important:</p>
+      <ul>
+        <li>Short walks twice daily (15-30 minutes each)</li>
+        <li>Playtime in a secure area</li>
+        <li>Mental stimulation through puzzle toys</li>
+        <li>Avoid excessive jumping or stair climbing</li>
+      </ul>
+
+      <h3>Back Health</h3>
+      <p>puppys are prone to Intervertebral Disc Disease (IVDD) due to their long spine. Protect your dog's back by:</p>
+      <ul>
+        <li>Using ramps instead of stairs</li>
+        <li>Supporting their back when picking them up</li>
+        <li>Preventing jumping from furniture</li>
+        <li>Maintaining a healthy weight</li>
+      </ul>
+
+      <h3>Grooming</h3>
+      <p>Grooming needs vary based on coat type:</p>
+      <ul>
+        <li><strong>Smooth coat:</strong> Weekly brushing, occasional baths</li>
+        <li><strong>Long hair:</strong> Brush 2-3 times weekly, trim as needed</li>
+        <li><strong>Wire hair:</strong> Hand-stripping or professional grooming every few months</li>
+      </ul>
+
+      <InfoBox type="tip" title="Regular Maintenance">
+        <ul>
+          <li>Trim nails every 2-3 weeks</li>
+          <li>Clean ears weekly</li>
+          <li>Brush teeth regularly</li>
+          <li>Check for skin issues during grooming</li>
+        </ul>
+      </InfoBox>
+
+      <h3>Training</h3>
+      <p>puppys are intelligent but can be stubborn. Successful training tips:</p>
+      <ul>
+        <li>Start training early and be consistent</li>
+        <li>Use positive reinforcement (treats and praise)</li>
+        <li>Keep training sessions short (5-10 minutes)</li>
+        <li>Socialize with other dogs and people</li>
+        <li>Be patient - they respond better to kindness</li>
+      </ul>
+
+      <div class="cta-box">
+        <h3>Need More Guidance?</h3>
+        <p>We're always here to help with any questions about caring for your puppy.</p>
+        <a href="/contact" class="btn">Contact Us</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .info-content {
+    padding: 4rem 1.5rem;
+    background: #fff;
+  }
+
+  .content-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2a2a2a;
+    margin: 0 0 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #f19645;
+    margin: 2rem 0 1rem;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #5a5a5a;
+    line-height: 1.8;
+    margin: 0 0 1rem;
+  }
+
+  ul {
+    margin: 0 0 1.5rem 1.5rem;
+    color: #5a5a5a;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+  }
+
+  .cta-box {
+    background: linear-gradient(135deg, #f19645, #e08839);
+    color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .cta-box h3 {
+    color: white;
+    margin: 0 0 0.5rem;
+  }
+
+  .cta-box p {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 0 1.5rem;
+  }
+
+  .btn {
+    display: inline-block;
+    background: #e08839;
+    color: white;
+    padding: 0.875rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn:hover {
+    background: #d63c3c;
+  }
+
+  @media (max-width: 768px) {
+    .info-content {
+      padding: 3rem 1rem;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+    }
+  }
+</style>
